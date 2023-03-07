@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:own/widget/FirstPhase/HomeFirstPhase_1.dart';
-import 'package:own/widget/Header.dart';
+import 'package:own/screens/AppDrawer.dart';
 import 'package:provider/provider.dart';
 
-import '../Provider/Product.dart';
+import 'package:own/widget/FirstPhase/HomeFirstPhase_1.dart';
+import 'package:own/widget/Header.dart';
 import '../widget/FirstPhase/HomeFirstPhase_2.dart';
 import '../widget/FirstPhase/HomeFirstPhase_3.dart';
 import '../widget/Product_item.dart';
+
+import '../Provider/Product.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final obj = Provider.of<Products>(context);
     final item = obj.items;
+    final categoryitem = obj.getgetCategories;
     return Scaffold(
       backgroundColor: Color(0xffcbcbcb),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: AppDrawer(),
+      ),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         title: const Text("Home"),
@@ -58,21 +62,37 @@ class Home extends StatelessWidget {
                 FirstPhase_3(),
               ],
             ),
-            Header("Herbs Seasoning"),
             Container(
-              height: 230,
+              margin: EdgeInsets.only(left: 5, right: 5),
+              height: 1200,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: item.length,
-                itemBuilder: (context, index) => Product_item(
-                  title: item[index].title,
-                  description: item[index].description,
-                  ImageURL: item[index].imageUrl,
-                  Price: item[index].price,
+                scrollDirection: Axis.vertical,
+                physics: const ClampingScrollPhysics(),
+                itemCount: categoryitem.length,
+                itemBuilder: (context, a) => Column(
+                  children: [
+                    Header(categoryitem[a]),
+                    Container(
+                      height: 230,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: item.length,
+                          itemBuilder: (context, index) {
+                            if (categoryitem[a] == item[index].category) {
+                              return Product_item(
+                                title: item[index].title,
+                                description: item[index].description,
+                                ImageURL: item[index].imageUrl,
+                                Price: item[index].price,
+                              );
+                            }
+                            return Container();
+                          }),
+                    ),
+                  ],
                 ),
               ),
             ),
-            Header("Herbs Seasoning"),
           ],
         ),
       ),

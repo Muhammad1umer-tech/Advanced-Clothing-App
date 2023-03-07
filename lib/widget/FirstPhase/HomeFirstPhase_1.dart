@@ -15,7 +15,7 @@ class FirstPhase extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image.network(
-          'https://images6.alphacoders.com/102/1024930.jpg',
+          'https://tse3.mm.bing.net/th?id=OIP.PutbPxEidV8uEH41j9nbFAHaEH&pid=Api&P=0',
           height: 150,
           width: double.infinity,
           fit: BoxFit.cover,

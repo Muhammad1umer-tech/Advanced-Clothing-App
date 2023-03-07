@@ -11,6 +11,7 @@ class Product_item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 167,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -30,11 +31,16 @@ class Product_item extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10),
                 child: Text(title,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 17))),
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17))),
             Container(
                 margin: const EdgeInsets.only(top: 5, bottom: 10),
-                child: Text(description,
-                    style: const TextStyle(color: Colors.grey))),
+                child: Text(
+                  description,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: Colors.grey),
+                )),
             Row(
               children: [
                 Container(

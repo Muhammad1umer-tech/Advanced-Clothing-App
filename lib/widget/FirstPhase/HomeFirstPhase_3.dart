@@ -64,7 +64,7 @@ class FirstPhase_3 extends StatelessWidget {
                     ),
                     const Center(
                       child: Text(
-                        "on all Vegatables products!",
+                        "on all Clothing products!",
                         style: TextStyle(
                             fontSize: 15,
                             color: Colors.white,

@@ -1,13 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Product {
   final String id;
   final String title;
+  final String category;
   final String description;
   final double price;
   final String imageUrl;
 
-  Product({this.id, this.title, this.description, this.price, this.imageUrl});
+  Product(
+      {@required this.id,
+      @required this.title,
+      @required this.category,
+      @required this.description,
+      @required this.price,
+      @required this.imageUrl});
 }
 
 class Products with ChangeNotifier {
@@ -15,6 +23,7 @@ class Products with ChangeNotifier {
     Product(
       id: 'p1',
       title: 'Red Shirt',
+      category: "shirt",
       description: 'A red shirt',
       price: 29.99,
       imageUrl:
@@ -22,31 +31,88 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p2',
-      title: 'Trousers',
-      description: 'A nice',
+      title: 'Grey shirt',
+      category: "shirt",
+      description: 'A nice Grey Shirt',
       price: 59.99,
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Trousers%2C_dress_%28AM_1960.022-8%29.jpg/512px-Trousers%2C_dress_%28AM_1960.022-8%29.jpg',
+          'https://tse1.mm.bing.net/th?id=OIP.SvRjOK8USOxGhdkw7RTcIgHaJ4&pid=Api&P=0',
     ),
     Product(
       id: 'p3',
-      title: 'Yellow Scarf',
+      title: 'Red Shirt',
+      category: "shirt",
       description: 'Warm and cozy - exactly what you need for the winter.',
       price: 19.99,
       imageUrl:
-          'https://live.staticflickr.com/4043/4438260868_cc79b3369d_z.jpg',
+          'https://tse3.mm.bing.net/th?id=OIP.KY-FWqQMeFCqRFH0WcJnSAHaIp&pid=Api&P=0',
     ),
     Product(
       id: 'p4',
-      title: 'A Pan',
+      title: 'A Pant',
+      category: "pant",
+      description: 'Plazo Pant',
+      price: 49.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.xhTTIeYjKgOWtMxcmCrJFAHaHa&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p4',
+      title: 'A Pant',
+      category: "pant",
       description: 'Prepar',
       price: 49.99,
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
+          'https://tse2.mm.bing.net/th?id=OIP.ZUpsExHFCvkvx5dLGAmFmQHaOt&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p4',
+      title: 'Shoes',
+      category: "Shoes",
+      description: 'Great Shoes for a walk',
+      price: 49.99,
+      imageUrl:
+          'https://tse2.mm.bing.net/th?id=OIP.OgQJ3-TixXKKmkqofYbGjgHaHa&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p4',
+      title: 'Shoes',
+      category: "chain",
+      description: 'Great Shoes for a walk',
+      price: 49.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.BR6mitqRvqsd7mnK4fIziwHaJ4&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p3',
+      title: 'Red Shirt',
+      category: "shirt",
+      description: 'Warm and cozy - exactly what you need for the winter.',
+      price: 19.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.KY-FWqQMeFCqRFH0WcJnSAHaIp&pid=Api&P=0',
     ),
   ];
 
   List<Product> get items {
     return [..._item];
+  }
+
+  double height;
+  List<String> get getgetCategories {
+    List<String> cate = [];
+    for (int a = 0; a < _item.length; a++) {
+      if (!cate.contains(_item[a].category)) {
+        cate.add(_item[a].category);
+      }
+    }
+    //heightCategory();
+    //notifyListeners();
+    return cate;
+  }
+
+  void heightCategory() {
+    double a = getgetCategories.length as double;
+    height = 230.0 * a;
   }
 }
