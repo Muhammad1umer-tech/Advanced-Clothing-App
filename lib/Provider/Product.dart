@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:own/Dimension/Dimension.dart';
 
 class Product {
   final String id;
@@ -57,7 +58,7 @@ class Products with ChangeNotifier {
           'https://tse3.mm.bing.net/th?id=OIP.xhTTIeYjKgOWtMxcmCrJFAHaHa&pid=Api&P=0',
     ),
     Product(
-      id: 'p4',
+      id: 'p5',
       title: 'A Pant',
       category: "pant",
       description: 'Prepar',
@@ -66,7 +67,7 @@ class Products with ChangeNotifier {
           'https://tse2.mm.bing.net/th?id=OIP.ZUpsExHFCvkvx5dLGAmFmQHaOt&pid=Api&P=0',
     ),
     Product(
-      id: 'p4',
+      id: 'p6',
       title: 'Shoes',
       category: "Shoes",
       description: 'Great Shoes for a walk',
@@ -75,7 +76,7 @@ class Products with ChangeNotifier {
           'https://tse2.mm.bing.net/th?id=OIP.OgQJ3-TixXKKmkqofYbGjgHaHa&pid=Api&P=0',
     ),
     Product(
-      id: 'p4',
+      id: 'p7',
       title: 'Shoes',
       category: "chain",
       description: 'Great Shoes for a walk',
@@ -84,9 +85,36 @@ class Products with ChangeNotifier {
           'https://tse3.mm.bing.net/th?id=OIP.BR6mitqRvqsd7mnK4fIziwHaJ4&pid=Api&P=0',
     ),
     Product(
-      id: 'p3',
+      id: 'p8',
       title: 'Red Shirt',
       category: "shirt",
+      description: 'Warm and cozy - exactly what you need for the winter.',
+      price: 19.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.KY-FWqQMeFCqRFH0WcJnSAHaIp&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p9',
+      title: 'Red Shirt',
+      category: "Pillow",
+      description: 'Warm and cozy - exactly what you need for the winter.',
+      price: 19.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.KY-FWqQMeFCqRFH0WcJnSAHaIp&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p10',
+      title: 'Red Shirt',
+      category: "Puba",
+      description: 'Warm and cozy - exactly what you need for the winter.',
+      price: 19.99,
+      imageUrl:
+          'https://tse3.mm.bing.net/th?id=OIP.KY-FWqQMeFCqRFH0WcJnSAHaIp&pid=Api&P=0',
+    ),
+    Product(
+      id: 'p10',
+      title: 'Red Shirt',
+      category: "bombastic",
       description: 'Warm and cozy - exactly what you need for the winter.',
       price: 19.99,
       imageUrl:
@@ -106,13 +134,10 @@ class Products with ChangeNotifier {
         cate.add(_item[a].category);
       }
     }
-    //heightCategory();
-    //notifyListeners();
     return cate;
   }
 
-  void heightCategory() {
-    double a = getgetCategories.length as double;
-    height = 230.0 * a;
+  Product findById(String id) {
+    return _item.firstWhere((element) => element.id == id);
   }
 }

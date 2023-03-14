@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:own/Dimension/Dimension.dart';
 
 class FirstPhase_3 extends StatelessWidget {
   const FirstPhase_3({Key key}) : super(key: key);
@@ -11,7 +12,6 @@ class FirstPhase_3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         children: [

@@ -7,7 +7,7 @@ import 'package:own/widget/Header.dart';
 import '../widget/FirstPhase/HomeFirstPhase_2.dart';
 import '../widget/FirstPhase/HomeFirstPhase_3.dart';
 import '../widget/Product_item.dart';
-
+import '../Dimension/Dimension.dart';
 import '../Provider/Product.dart';
 
 class Home extends StatelessWidget {
@@ -62,37 +62,76 @@ class Home extends StatelessWidget {
                 FirstPhase_3(),
               ],
             ),
-            Container(
-              margin: EdgeInsets.only(left: 5, right: 5),
-              height: 1200,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                physics: const ClampingScrollPhysics(),
-                itemCount: categoryitem.length,
-                itemBuilder: (context, a) => Column(
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: categoryitem.length,
+              shrinkWrap: true,
+              itemBuilder: (context, a) {
+                return Column(
                   children: [
                     Header(categoryitem[a]),
                     Container(
                       height: 230,
                       child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: item.length,
-                          itemBuilder: (context, index) {
-                            if (categoryitem[a] == item[index].category) {
-                              return Product_item(
-                                title: item[index].title,
-                                description: item[index].description,
-                                ImageURL: item[index].imageUrl,
-                                Price: item[index].price,
-                              );
-                            }
+                        scrollDirection: Axis.horizontal,
+                        itemCount: item.length,
+                        itemBuilder: (context, index) {
+                          // Row(children: [
+                          if (categoryitem[a] == item[index].category) {
+                            return Product_item(
+                              id: item[index].id,
+                              title: item[index].title,
+                              description: item[index].description,
+                              ImageURL: item[index].imageUrl,
+                              Price: item[index].price,
+                            );
+                          } else {
                             return Container();
-                          }),
+                          }
+                          //]);
+                        },
+                      ),
                     ),
                   ],
-                ),
-              ),
-            ),
+                );
+              },
+            )
+            // Container(
+            //   margin: EdgeInsets.only(left: 5, right: 5),
+            //   height: Provider.of<Products>(context).heightCategory,
+            //   child: ListView.builder(
+            //     physics: ClampingScrollPhysics(),
+            //     itemCount: categoryitem.length,
+            //     itemBuilder: (context, a) => Container(
+            //       child: ListView(
+            //         shrinkWrap: true,
+            //         physics: ClampingScrollPhysics(),
+            //         children: [
+            //           Header(categoryitem[a]),
+            //           Container(
+            //             height: 230,
+            //             child: ListView.builder(
+            //                 scrollDirection: Axis.horizontal,
+            //                 itemCount: item.length,
+            //                 itemBuilder: (context, index) {
+            //                   if (categoryitem[a] == item[index].category) {
+            //                     return Product_item(
+            //                       id: item[index].id,
+            //                       title: item[index].title,
+            //                       description: item[index].description,
+            //                       ImageURL: item[index].imageUrl,
+            //                       Price: item[index].price,
+            //                     );
+            //                   }
+            //                   return Container();
+            //                 }
+            // ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
