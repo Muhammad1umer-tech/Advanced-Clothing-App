@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:own/screens/ManageProducts.dart';
 import 'package:own/screens/ProductDetail.dart';
 import 'package:own/screens/home.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         home: Home(),
         routes: {
           ProductDetail.routename: (context) => ProductDetail(),
+          ManageProducts.routename: (context) => ManageProducts(),
         },
       ),
     );

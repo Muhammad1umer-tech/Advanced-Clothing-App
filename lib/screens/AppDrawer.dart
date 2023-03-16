@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:own/screens/ManageProducts.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -31,13 +33,20 @@ class AppDrawer extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 5),
-              Container(
-                child: Row(
-                  children: const [
-                    Icon(Icons.edit),
-                    SizedBox(width: 15),
-                    Text("Manage Products")
-                  ],
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context, rootNavigator: true)
+                      .pushNamed(ManageProducts.routename);
+                },
+                child: Container(
+                  child: Row(
+                    children: const [
+                      Icon(Icons.edit),
+                      SizedBox(width: 15),
+                      Text("Manage Products")
+                    ],
+                  ),
                 ),
               ),
             ],
