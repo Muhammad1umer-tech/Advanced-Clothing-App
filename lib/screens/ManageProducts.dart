@@ -20,7 +20,7 @@ class ManageProducts extends StatelessWidget {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(item[index].title),
+                Text(item[index].id),
                 const Spacer(),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
